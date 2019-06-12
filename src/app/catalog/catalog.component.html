@@ -1,0 +1,71 @@
+
+<div style='margin-left:100px; margin-right:100px;'>
+
+    <h2>Catalog</h2>
+
+    <hr>
+
+  <table>
+    <tr >
+      <td>
+        <input [(ngModel)]="searchText" #search placeholder="Search" class="advancedSearchTextbox">
+        <p></p>
+        <table class='table table-dark table-bordered table-striped' style='width:800px;'>
+            <thead>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Desc</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th></th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of items | itemNameFilter: {productId: searchText, name:searchText}; let i=index;" >
+                    <td>{{item.productId}}</td> 
+                    <td>{{item.name}}</td> 
+                    <td>{{item.description}}</td> 
+                    <td>${{item.price}}</td> 
+                    <td>{{item.quantity}}</td> 
+                    <td class='col-sm-4'>
+                        <div class="input-group">
+                          <div>
+                            <input type="number" class="form-control" style="width:100px;" value="0" #num>
+                          </div>
+                          <span class="input-group-btn">
+                            <button name="Add" class="btn btn-primary btn-info" (click)="addToCart(item,num.value); num.value=0;">Add</button>
+                          </span>
+                        </div>
+                      </td>
+                </tr>
+            </tbody>
+        </table>
+
+      </td>
+
+    <td style='padding-left:30px; vertical-align:text-top;'>
+
+        <h1>Add to Catalog</h1>
+
+        Product Id: <input type='number' min='1' class='form-control' #id ><br/>
+
+        Name: <input type='text' class='form-control' #name ><br/>
+
+        Description: <input type='text' class='form-control' #desc ><br/>
+
+        Price: <input type='number' min='0' class='form-control' #price ><br/>
+
+        Quantity: <input type='number' min='0' class='form-control' #qty ><br/>
+
+        <button name='Add' class="btn btn-primary" 
+          (click)="addToCatalog(id.value, name.value, desc.value, price.value, qty.value); 
+                    id.value=''; name.value=''; desc.value=''; price.value=''; qty.value=''; ">Add To Catalog</button>
+
+      </td>
+    </tr>
+  </table>
+
+
+
+</div>
+
+

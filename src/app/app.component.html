@@ -1,0 +1,45 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <br/>
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+
+</div>
+
+<div #divLogin>
+
+  <table>
+      <tr>
+        <td style='padding-left:50px;'>
+          <h2>Login</h2>
+          <hr>
+          <div>
+            Username: <input  type='text' class='form-control' #username > <br/>
+            Password:  <input type='text' class='form-control'  #password><br/>
+            <button class='btn btn-danger' (click)='login(username.value, password.value)'>Submit</button>
+          </div>
+
+      </td>
+    </tr>
+  </table>
+
+</div>
+
+
+<div #divPage>
+
+  <app-catalog></app-catalog>
+
+  <br/>
+  <br/>
+
+  <app-shopping-cart></app-shopping-cart>
+
+  <br/>
+  <br/>
+
+</div>
+
+
+
